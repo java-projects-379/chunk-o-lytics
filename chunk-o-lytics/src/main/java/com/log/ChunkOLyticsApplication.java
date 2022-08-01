@@ -40,6 +40,9 @@ public class ChunkOLyticsApplication implements ExitCodeGenerator {
 	@Bean
 	public CommandLineRunner createException() {
 		return args -> {
+			if (args.length < 2) {
+					throw new IllegalArgumentException();
+			}
 			if (args.length > 2) {
 				String args2=args[2].split("=")[1];
 				int maxClientIPs = Integer.parseInt(args2);
